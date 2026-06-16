@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Advanced Fabric Showcase | Maruti Textile Empire</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "tertiary-fixed-dim": "#95d1ce",
+                        "surface-variant": "#e3e2e0",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#1a1c1a",
+                        "on-surface-variant": "#584141",
+                        "on-error": "#ffffff",
+                        "surface-tint": "#af2b3e",
+                        "surface-container-high": "#e9e8e5",
+                        "navy-heritage": "#002344",
+                        "outline-variant": "#e0bfbf",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-tertiary-container": "#77b2af",
+                        "surface-bright": "#faf9f6",
+                        "on-primary-fixed-variant": "#8e0f28",
+                        "tertiary": "#002d2c",
+                        "on-primary": "#ffffff",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-secondary-fixed": "#241a00",
+                        "outline": "#8c7071",
+                        "surface-container": "#efeeeb",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#00201f",
+                        "inverse-primary": "#ffb3b5",
+                        "tertiary-fixed": "#b1eeea",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#40000b",
+                        "royal-maroon": "#800020",
+                        "on-secondary-container": "#745c00",
+                        "secondary-container": "#fed65b",
+                        "primary-fixed": "#ffdada",
+                        "on-surface": "#1a1c1a",
+                        "surface-dim": "#dbdad7",
+                        "silk-white": "#F9F8F5",
+                        "emerald-deep": "#004B49",
+                        "on-tertiary-fixed-variant": "#084f4d",
+                        "surface-container-low": "#f4f3f0",
+                        "secondary-fixed": "#ffe088",
+                        "primary": "#570013",
+                        "inverse-on-surface": "#f2f1ee",
+                        "tertiary-container": "#004543",
+                        "secondary": "#735c00",
+                        "muted-gold": "#D4AF37",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#faf9f6",
+                        "inverse-surface": "#2f312f",
+                        "primary-container": "#800020",
+                        "glass-fill": "rgba(255, 255, 255, 0.7)",
+                        "on-primary-container": "#ff828a",
+                        "surface-container-highest": "#e3e2e0",
+                        "primary-fixed-dim": "#ffb3b5",
+                        "background": "#faf9f6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "section-gap": "120px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "headline-md": ["Bodoni Moda"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-md": ["Hanken Grotesk"],
+                        "label-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "80px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "40px", "fontWeight": "500" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hover-scale {
+            transition: transform 0.3s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .bento-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        .bento-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .bento-card:hover .bento-overlay {
+            transform: translateY(0);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-muted-gold selection:text-royal-maroon">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 bg-glass-fill backdrop-blur-md dark:bg-glass-fill shadow-sm dark:shadow-none transition-all duration-300" id="navbar">
+<div class="flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<a class="font-headline-md text-headline-md text-royal-maroon dark:text-on-primary-container tracking-tight" href="#">Maruti Textile Empire</a>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-royal-maroon transition-colors hover:bg-silk-white/50 dark:hover:bg-inverse-surface/50 px-3 py-2 rounded-lg font-body-md" href="#">Collections</a>
+<a class="text-royal-maroon dark:text-primary-fixed-dim border-b-2 border-muted-gold pb-1 font-body-md" href="#">Categories</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-royal-maroon transition-colors hover:bg-silk-white/50 dark:hover:bg-inverse-surface/50 px-3 py-2 rounded-lg font-body-md" href="#">Wholesale</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-royal-maroon transition-colors hover:bg-silk-white/50 dark:hover:bg-inverse-surface/50 px-3 py-2 rounded-lg font-body-md" href="#">About</a>
+</div>
+<a class="hidden md:inline-flex items-center justify-center px-6 py-3 bg-royal-maroon text-muted-gold font-label-md rounded-full hover:bg-primary transition-colors shadow-sm hover:shadow-md" href="#">
+                Contact Us
+            </a>
+<!-- Mobile Menu Button -->
+<button class="md:hidden text-royal-maroon p-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-20">
+<!-- Hero Section with Shader -->
+<section class="relative w-full h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+
+<div class="relative z-10 text-center px-margin-mobile max-w-4xl mx-auto flex flex-col items-center gap-stack-lg fade-in-up">
+<span class="px-4 py-1 border border-muted-gold rounded-full text-label-md uppercase tracking-widest text-royal-maroon bg-silk-white/80 backdrop-blur-sm">Advanced Showcase</span>
+<h1 class="font-display-lg text-display-lg md:text-[80px] text-royal-maroon drop-shadow-md">The Art of the Thread</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl bg-silk-white/60 p-4 rounded-xl backdrop-blur-sm shadow-sm">
+                    Explore the microscopic detail of our premium Indian Designer Fabrics and Silk Rayons. A tactile digital experience designed for discerning boutiques.
+                </p>
+<a class="inline-flex items-center gap-2 px-8 py-4 bg-emerald-deep text-silk-white rounded-full font-label-md text-label-md hover:bg-tertiary transition-all hover:scale-105 shadow-lg shadow-emerald-deep/20" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Connect on WhatsApp
+                </a>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-royal-maroon/50">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 0;">keyboard_arrow_down</span>
+</div>
+</section>
+<!-- Feel the Quality (3D Interactive Section) -->
+<section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto relative">
+<div class="text-center mb-16 fade-in-up">
+<h2 class="font-headline-lg text-headline-lg text-navy-heritage mb-4">Feel the Quality</h2>
+<div class="h-1 w-24 bg-muted-gold mx-auto rounded-full"></div>
+</div>
+<div class="relative w-full aspect-square md:aspect-video rounded-2xl overflow-hidden glass-panel shadow-[0_20px_60px_-15px_rgba(128,0,32,0.1)] border border-outline-variant/30 fade-in-up flex items-center justify-center">
+<!-- 3D Scene Placeholder -->
+
+<!-- Floating Tags -->
+<div class="absolute top-10 left-10 md:left-20 z-10 glass-panel px-4 py-2 rounded-full border border-muted-gold shadow-sm animate-pulse" style="animation-duration: 3s;">
+<span class="font-label-md text-label-md text-royal-maroon uppercase">4K Weave Consistency</span>
+</div>
+<div class="absolute bottom-20 left-5 md:left-32 z-10 glass-panel px-4 py-2 rounded-full border border-muted-gold shadow-sm animate-pulse" style="animation-duration: 4s; animation-delay: 1s;">
+<span class="font-label-md text-label-md text-royal-maroon uppercase">Hand-Dyed Royal Maroon</span>
+</div>
+<div class="absolute top-1/2 right-5 md:right-24 z-10 glass-panel px-4 py-2 rounded-full border border-muted-gold shadow-sm animate-pulse" style="animation-duration: 3.5s; animation-delay: 0.5s;">
+<span class="font-label-md text-label-md text-royal-maroon uppercase">Crease-Resistant Rayon</span>
+</div>
+<div class="absolute bottom-5 right-5 z-10 bg-surface/80 backdrop-blur-sm p-3 rounded-xl border border-outline-variant/20 flex items-center gap-3">
+<span class="material-symbols-outlined text-muted-gold" style="font-variation-settings: 'FILL' 0;">360</span>
+<span class="font-label-md text-sm text-on-surface-variant">Drag to Rotate</span>
+</div>
+</div>
+</section>
+<!-- Instagram Reels Section (Shoppable Feed) -->
+<section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto overflow-hidden">
+<div class="text-center mb-12 fade-in-up">
+<h2 class="font-headline-lg text-headline-lg text-royal-maroon mb-4">Trending from our Studio</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">Live inspiration from @thankapda</p>
+<div class="h-1 w-24 bg-muted-gold mx-auto rounded-full mt-4"></div>
+</div>
+<div class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory hide-scrollbar">
+<!-- Reel 1 -->
+<div class="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden glass-panel shadow-sm snap-center group flex-shrink-0">
+<div class="absolute inset-0 bg-surface-variant/50 animate-pulse z-0"></div>
+<img alt="Fabric Reel" class="absolute inset-0 w-full h-full object-cover opacity-80 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQnxWbo14ow6hNbYYu4aEa1ED6MD9baFFY7-q84OwnZuk0K0libgY_SdInWlDYBm5snKb3kddqcRG7cjZceyHYFzjz4vczrGDDTGg6DKmg_yo8e_EsVFOgrZff0E9Ssy2Cs3lOCCJ6rBmQ7FyTKo-KyeEeuJIVy5RbyWk_8Vn-sOdt1Of2LGs_2PTnND8Mjq-bOiG_v_SjMuT5HGn1m28kpBqcJOt3vzU65-JHrpzlvIgD47QBXAE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 z-30">
+<p class="text-white font-label-md mb-2 line-clamp-2">New arrivals! The exquisite Banarasi silk collection. ✨ #silk #fashion</p>
+<button class="w-full py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Shop this Look on WhatsApp
+                </button>
+</div>
+</div>
+<!-- Reel 2 -->
+<div class="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden glass-panel shadow-sm snap-center group flex-shrink-0">
+<div class="absolute inset-0 bg-surface-variant/50 animate-pulse z-0"></div>
+<img alt="Fabric Reel" class="absolute inset-0 w-full h-full object-cover opacity-80 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj5lUHHQDBBXcpOoTEfLsybMs5tBQp61J55bcX1vXqWG8m4oH30ebCe_gyJjJs6bcGWTJmL3LQw183VofGK1eLJRIH1tCp2TpWJHWNG4NgjPv5XBpdx0vSq_Gr3uP6y7LXsAbpmrbC6v3SCig4icfLoFCUZWyAfpLEAfQ1IdAH7t5Zrwo8_WhCqf4DsG3qBGnWbfpZDKYucj__6bW9i1kk8q3qQoud1Z05NVX7kDItZMBzRQqSPjM"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 z-30">
+<p class="text-white font-label-md mb-2 line-clamp-2">Behind the scenes at Maruti Textile Empire. Quality you can feel. 🧵</p>
+<button class="w-full py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Shop this Look on WhatsApp
+                </button>
+</div>
+</div>
+<!-- Reel 3 -->
+<div class="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden glass-panel shadow-sm snap-center group flex-shrink-0">
+<div class="absolute inset-0 bg-surface-variant/50 animate-pulse z-0"></div>
+<img alt="Fabric Reel" class="absolute inset-0 w-full h-full object-cover opacity-80 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0TP9OXWJKJU0OobP21zw9K0f2FHbPz1CaBQu1i7xQ4uOexYZtMYfYSdS2A0Pm4TLPgRgAAFVa5__N5fU8K2_5A_nrGwoecOReR59CyQ1LpfvaxKs9esyh4YLdh0EEeiNjDvavN93hrhMMMWo8JXWTuSuCCxue-FXT3PqCjgY66Ejy3vqCZjOv1D1JU9EiWzOf2s5ARrSG3-9sZVz1Hn0dE8RdZimiz6ZpIlTIZKfp4NKaGM4xvUo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 z-30">
+<p class="text-white font-label-md mb-2 line-clamp-2">Premium Rayons perfect for the summer collection. Drop a message! ☀️</p>
+<button class="w-full py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Shop this Look on WhatsApp
+                </button>
+</div>
+</div>
+<!-- Reel 4 -->
+<div class="min-w-[280px] w-[280px] md:min-w-[320px] md:w-[320px] aspect-[9/16] relative rounded-2xl overflow-hidden glass-panel shadow-sm snap-center group flex-shrink-0">
+<div class="absolute inset-0 bg-surface-variant/50 animate-pulse z-0"></div>
+<img alt="Fabric Reel" class="absolute inset-0 w-full h-full object-cover opacity-80 z-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfnLYVv6A0pmJPFF5jXeK73IB5ScLc0aLr4Uvmn2v0a-QWGrAVoV0YjJ3SlN2MSIy77s_s86c2Mu_PBkuZz66A1JjerXzPT1vW7NbZUTYdREPgxoqRzZEF-wg1Q5iVbtqFJySZbzKJo7ZL0CE3U9OLFNr_PpQ9FiAE66Yf2VwP7lex9PdPWci60-55Vo_Aq_E-inv2HFeiOOMe7bAP467cwkIa_cqdsG8cmWtIkdpx1Eb8OfgU508"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<div class="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
+<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/40 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full p-6 z-30">
+<p class="text-white font-label-md mb-2 line-clamp-2">Custom handloom cottons fresh from the weavers. DM for wholesale.</p>
+<button class="w-full py-3 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full font-label-md flex items-center justify-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">chat</span>
+                    Shop this Look on WhatsApp
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section (Customer Love) -->
+<section class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto mb-section-gap">
+<div class="text-center mb-12 fade-in-up">
+<h2 class="font-headline-lg text-headline-lg text-royal-maroon mb-4">Trusted by Kathmandu's Finest</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto">Stories from boutique owners and designers who choose Maruti.</p>
+<div class="h-1 w-24 bg-muted-gold mx-auto rounded-full mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-silk-white rounded-2xl p-8 shadow-sm border border-outline-variant/30 fade-in-up">
+<div class="flex gap-1 mb-6 text-muted-gold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-headline-md text-xl italic text-on-surface-variant mb-8">"The quality of silk from Maruti is unmatched. Our bridal clients instantly feel the difference. The royal maroon collection has been our top seller this season."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4mIYgDhnF6u6PmOFdQ5kR6zt4TSwOBTNoNIv0noRiH_HNxp0d3gcM7BMYHlw0qoUcmBwvql5lfQJTC82gq8iGLeCRfjN8Ay8_siWQ_faCADvzUf98W3N1FQEALfeUTV4nmtTG8Q_0OWb73h15cgBUilYwdKEr-N54LREatc4-3oKYNCR6tZIB9lN51ji6yKSnh3PyziK2vC96tgSMRb5cBEU2YB2wQAnf9Oi8iiCDCQdz4hRVrvk"/>
+</div>
+<div>
+<h4 class="font-label-md text-royal-maroon">Priya Sharma</h4>
+<p class="text-sm text-on-surface-variant">Owner, Elegance Boutique</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-silk-white rounded-2xl p-8 shadow-sm border border-outline-variant/30 fade-in-up" style="transition-delay: 100ms;">
+<div class="flex gap-1 mb-6 text-muted-gold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-headline-md text-xl italic text-on-surface-variant mb-8">"Consistently premium fabrics and excellent wholesale service. The Whatsapp ordering process makes restocking incredibly smooth and efficient for my studio."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC25nwA0FE6rjWftpDgDZo5H_0fWr-DrRh94EvHAE4XnBZDgQGM21AkqVl2XBzs3xX3N29NkUafA5fRF4Mf2lH2lHkaQ3zP9BLwWDN6HqfWqXh0IvL0C_BcIsFcz-CURF0bv_QtnAuYuT0IFnp33oROl6koUP9QRems7zqAAoutRG-4Jir7A6rQcDZYVxnZwJNbmiG6aATycKb20xLGgH1vbN2IqHi9u7vhuAtyaFMIWinpdVt4M4k"/>
+</div>
+<div>
+<h4 class="font-label-md text-royal-maroon">Rajesh Thapa</h4>
+<p class="text-sm text-on-surface-variant">Lead Designer, Thapa Coture</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-silk-white rounded-2xl p-8 shadow-sm border border-outline-variant/30 fade-in-up" style="transition-delay: 200ms;">
+<div class="flex gap-1 mb-6 text-muted-gold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-headline-md text-xl italic text-on-surface-variant mb-8">"We rely on Maruti for all our premium rayon and handloom cotton needs. The colors are always vibrant, and the weave consistency is perfect for high-end tailoring."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden">
+<img alt="Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLxPDLqij_rhHHjSFUMdmn3G32mmynf8ymyi_E8hOJoRlEtA7aS36UCU3l64ZlnXlcyDtTKeu1g3-TY22CrfdnHrwxMfEINRApP3utx4ZqlT-C3X1MwBw4ezcU1XeLWMiUK8-x2ma8OTZhV5QhP8qdAxfnVVNvPswLxEo82sXJVPhvPZgD-u-75S0hvRLDtGLenapVi3aiU8lBakXw27AJgvuXxfJRsN4u8NfWxbGvCT8zjTUOrJo"/>
+</div>
+<div>
+<h4 class="font-label-md text-royal-maroon">Anita Gurung</h4>
+<p class="text-sm text-on-surface-variant">Founder, Kathmandu Threads</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-low dark:bg-inverse-surface w-full py-stack-lg border-t border-outline-variant dark:border-outline">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col gap-4">
+<span class="font-headline-md text-headline-md text-royal-maroon">Maruti Textile Empire</span>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant max-w-sm">
+                    Providing premium wholesale Indian fabrics, silks, and rayons to discerning tailors and boutiques since the 2000s.
+                </p>
+</div>
+<div class="flex flex-col gap-2 md:items-center">
+<h4 class="font-label-md text-label-md text-royal-maroon dark:text-primary-fixed-dim uppercase tracking-wider mb-2">Quick Links</h4>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-muted-gold transition-colors duration-200" href="#">Instagram</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-muted-gold transition-colors duration-200" href="#">Store Location</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-muted-gold transition-colors duration-200" href="#">Operating Hours</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant hover:text-muted-gold transition-colors duration-200" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4 md:items-end">
+<h4 class="font-label-md text-label-md text-royal-maroon dark:text-primary-fixed-dim uppercase tracking-wider mb-2">Connect</h4>
+<p class="font-body-md text-body-md text-on-surface-variant dark:text-surface-variant">© 2024 Maruti Textile Empire. All Rights Reserved. @thankapda</p>
+</div>
+</div>
+</footer>
+<!-- Floating Action Button (WhatsApp) -->
+<a class="fixed bottom-8 right-8 z-50 flex items-center justify-center w-14 h-14 bg-gradient-to-br from-emerald-deep to-royal-maroon text-silk-white rounded-full shadow-[0_10px_25px_rgba(0,75,73,0.4)] hover:scale-110 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</a>
+<!-- Intersection Observer for Fade-in Animations -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md', 'py-2');
+                    navbar.classList.remove('py-0');
+                } else {
+                    navbar.classList.remove('shadow-md', 'py-2');
+                    navbar.classList.add('py-0');
+                }
+            });
+        });
+    </script>
+</body></html>
